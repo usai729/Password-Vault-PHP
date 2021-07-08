@@ -1,0 +1,18 @@
+CREATE DATABASE db;
+USE db;
+
+CREATE TABLE users (
+	pId INT PRIMARY KEY AUTO_INCREMENT,
+    mailId VARCHAR(100) NOT NULL,
+    user_name VARCHAR(120) NOT NULL,
+    pwd TEXT NOT NULL
+);
+
+CREATE TABLE passwords (
+	pId INT PRIMARY KEY AUTO_INCREMENT,
+    relId INT,
+    name_of_pwd VARCHAR(100) NOT NULL,
+    pwd TEXT NOT NULL,
+    date_added DATE NOT NULL,
+    FOREIGN KEY(relId) REFERENCES users(pId)
+);
